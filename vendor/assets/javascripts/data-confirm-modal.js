@@ -75,7 +75,7 @@
 
       modal.find('.commit').on('click', function () {
         if (options.onConfirm && options.onConfirm.call) {
-          if (options.onConfirm.call() !== false) {
+          if (options.onConfirm.call() == undefined || options.onConfirm.call() === true) {
             modal.modal('hide');
           }
         } else {
