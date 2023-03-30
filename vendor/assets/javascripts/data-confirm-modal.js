@@ -74,10 +74,13 @@
       });
 
       modal.find('.commit').on('click', function () {
-        if (options.onConfirm && options.onConfirm.call)
-          options.onConfirm.call();
-
-        modal.modal('hide');
+        if (options.onConfirm && options.onConfirm.call) {
+          if (options.onConfirm.call()) {
+            modal.modal('hide');
+          }
+        } else {
+          modal.modal('hide');
+        }
       });
 
       modal.find('.cancel').on('click', function () {
